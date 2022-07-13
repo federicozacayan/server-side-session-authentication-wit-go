@@ -1,12 +1,10 @@
-# database
+# Database
 Using docker
 
 ```docker
 docker run --name auth-psql -p 5432:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=test -e POSTGRES_DBNAME=admin -d postgres:14
 ```
 
-
-## Initialize database
 ```bash
 docker exec -it auth-psql bash
 ```
@@ -14,7 +12,7 @@ docker exec -it auth-psql bash
 ```bash
 psql -U admin
 ```
-### Create User table
+
 ```sql
 create table users(
     id serial not null unique,
@@ -25,9 +23,6 @@ create table users(
 );
 ```
 
-```
-docker inspect auth-psql
-```
 
 # UI
 
