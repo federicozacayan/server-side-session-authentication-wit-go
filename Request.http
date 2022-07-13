@@ -1,0 +1,37 @@
+GET http://localhost:5000/
+
+
+###
+POST http://localhost:5000/auth/register
+content-type: application/json
+
+{
+    "email": "name@domain.com",
+    "name": "TEST",
+    "password": "123456"
+}
+
+###
+POST http://localhost:5000/auth/login
+content-type: application/json
+
+{
+    "email": "name@domain.com",
+    "password": "123456"
+}
+
+###
+// the "Set-Cookie" is set in the header of the response 
+// of the login request
+GET http://localhost:5000/user
+content-type: application/json
+Set-Cookie: session_id=df86f6c7-d749-477e-9108-742262f42a21; max-age=18000; path=/; HttpOnly; SameSite=Lax
+
+###
+POST http://localhost:5000/auth/logout
+content-type: application/json
+
+{
+    "email": "name@domain.com",
+    "password": "123456"
+}
